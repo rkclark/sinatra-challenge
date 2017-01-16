@@ -16,7 +16,22 @@ get '/otherstuff' do
   'Other stuff'
 end
 
-get '/cat' do
-  @random_name = ['bob', 'bill','donald','obama'].sample
+get '/random-cat' do
+  @name = ['bob', 'bill','donald','obama'].sample
+  erb(:index)
+end
+
+get '/named-cat' do
+  p params
+  p request.body
+  p request.query_string
+  erb(:cat_form)
+end
+
+post '/named-cat' do
+  p params
+  p request.body
+  p request.query_string
+  @name = params[:name]
   erb(:index)
 end
