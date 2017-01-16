@@ -2,6 +2,8 @@ require 'sinatra'
 
 set :session_secret, 'super secret'
 
+
+
 get '/' do
   'Hello!'
 end
@@ -15,5 +17,6 @@ get '/otherstuff' do
 end
 
 get '/cat' do
+  @random_name = ['bob', 'bill','donald','obama'].sample
   erb(:index)
 end
